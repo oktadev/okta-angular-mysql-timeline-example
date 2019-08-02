@@ -1,0 +1,9 @@
+.page-content {
+  margin-top: 2rem;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}

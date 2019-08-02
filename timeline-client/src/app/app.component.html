@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['']">
+    <i class="fa fa-clock-o"></i>
+  </a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['']">
+        Home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['timeline']">
+        Timeline
+      </a>
+    </li>
+  </ul>
+  <span>
+    <button class="btn btn-primary" *ngIf="!isAuthenticated" (click)="login()"> Login </button>
+    <button class="btn btn-primary" *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
+  </span>
+</nav>
+<router-outlet></router-outlet>
