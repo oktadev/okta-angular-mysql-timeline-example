@@ -28,7 +28,7 @@ To run the server, cd into the `timeline-server` folder and run:
 npm install && node src/index.js
 ```
 
-To run the client, cd into the `client` folder and run:
+To run the client, cd into the `timeline-client` folder and run:
 
 ```bash
 npm install && npm start
