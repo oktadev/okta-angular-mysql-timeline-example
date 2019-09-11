@@ -2,7 +2,7 @@
 
 This example app shows how to build a basic CRUD app with Angular, MySQL, Node, and Express.
 
-**Prerequisites:** [Node.js](https://nodejs.org/).
+**Prerequisites:** [Node.js](https://nodejs.org/), MySQL, and an [Okta developer account](https://developer.okta.com/signup/).
 
 > [Okta](https://developer.okta.com/) has Authentication and User Management APIs that reduce development time with instant-on, scalable user infrastructure. Okta's intuitive API and expert support make it easy for developers to authenticate, manage and secure users and roles in any application.
 
@@ -76,7 +76,7 @@ This example uses the following open source libraries from Okta:
 
 ## Help
 
-Please post any questions as commnets on the [blog post]() or ask them on the [Okta Developer Forums](https://devforum.okta.com/). Our whole team monitors this channel and will see your questions. You can also enter them as issues on this project or ask them on Stack Overflow and add the `okta` tag.
+Please post any questions as comments on the [blog post](https://developer.okta.com/blog/2019/08/16/angular-mysql-express) or post them on Stack Overflow and add the `okta` tag.
 
 ## License
 
