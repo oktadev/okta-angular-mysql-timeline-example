@@ -4,7 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -15,10 +14,7 @@ const routes: Routes = [
     component: TimelineComponent,
     canActivate: [OktaAuthGuard]
   },
-  {
-    path: 'implicit/callback',
-    component: OktaCallbackComponent 
-  }
+  { path: 'implicit/callback', component: OktaCallbackComponent }
 ];
 
 @NgModule({

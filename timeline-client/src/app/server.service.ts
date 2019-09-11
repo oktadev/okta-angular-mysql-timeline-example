@@ -8,38 +8,38 @@ import { environment } from '../environments/environment';
 })
 export class ServerService {
 
-    constructor(private http: HttpClient, public oktaAuth: OktaAuthService) {
-    }
+  constructor(private http: HttpClient, public oktaAuth: OktaAuthService) {
+  }
 
-    private async request(method: string, url: string, data?: any) {
-      const token = await this.oktaAuth.getAccessToken();
+  private async request(method: string, url: string, data?: any) {
+    const token = await this.oktaAuth.getAccessToken();
 
-      const result = this.http.request(method, url, {
-        body: data,
-        responseType: 'json',
-        observe: 'body',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      return new Promise((resolve, reject) => {
-        result.subscribe(resolve, reject);
-      });
-    }
+    const result = this.http.request(method, url, {
+      body: data,
+      responseType: 'json',
+      observe: 'body',
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return new Promise((resolve, reject) => {
+      result.subscribe(resolve, reject);
+    });
+  }
 
-    getEvents() {
-      return this.request('GET', `${environment.serverUrl}/event`);
-    }
+  getEvents() {
+    return this.request('GET', `${environment.serverUrl}/event`);
+  }
 
-    createEvent(event) {
-      return this.request('POST', `${environment.serverUrl}/event`, event);
-    }
+  createEvent(event) {
+    return this.request('POST', `${environment.serverUrl}/event`, event);
+  }
 
-    updateEvent(event) {
-      return this.request('PUT', `${environment.serverUrl}/event/${event.id}`, event);
-    }
+  updateEvent(event) {
+    return this.request('PUT', `${environment.serverUrl}/event/${event.id}`, event);
+  }
 
-    deleteEvent(event) {
-      return this.request('DELETE', `${environment.serverUrl}/event/${event.id}`);
-    }
+  deleteEvent(event) {
+    return this.request('DELETE', `${environment.serverUrl}/event/${event.id}`);
+  }
 }
