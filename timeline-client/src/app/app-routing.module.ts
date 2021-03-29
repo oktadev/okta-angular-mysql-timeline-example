@@ -14,7 +14,7 @@ const routes: Routes = [
     component: TimelineComponent,
     canActivate: [OktaAuthGuard]
   },
-  { path: 'implicit/callback', component: OktaCallbackComponent }
+  { path: 'callback', component: OktaCallbackComponent }
 ];
 
 @NgModule({

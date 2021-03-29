@@ -9,7 +9,7 @@ async function oktaAuth(req, res, next) {
   try {
     const token = req.token;
     if (!token) {
-      return res.status(401).send('Not Auhorised');
+      return res.status(401).send('Not Authorized');
     }
     const jwt = await oktaJwtVerifier.verifyAccessToken(token, ['api://default']);
     req.user = {
