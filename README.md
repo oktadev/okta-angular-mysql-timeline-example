@@ -36,11 +36,21 @@ npm install && npm start
 
 ### Create a New OIDC App in Okta
 
-If you don't have an Okta developer account, please [create one](https://developer.okta.com/signup/). Then, create a new OIDC app on Okta:
+Before you begin, you’ll need a free Okta developer account. Install the [Okta CLI](https://cli.okta.com) and run okta register to sign up for a new account. If you already have an account, run okta login.
 
-1. Log in to your developer account, navigate to **Applications** > **Add Application**.
-3. Select **Single-Page App** > **Next**.
-4. Give the application a name, change all instances of `https://localhost:8080` to `https://localhost:4200`, and click **Done**.
+Then, run `okta apps create`. Select the default app name, or change it as you see fit. Choose **Single-Page App** and press **Enter**.
+
+Change the Redirect URI to `http://localhost:4200/callback` and accept the default Logout Redirect URI of `http://localhost:4200`.
+
+The Okta CLI will create an OIDC Single-Page App in your Okta Org. It will add the redirect URIs you specified and grant access to the Everyone group. It will also add a trusted origin for `http://localhost:4200`. You will see output like the following when it’s finished:
+
+```
+Okta application configuration:
+Issuer:    https://dev-133337.okta.com/oauth2/default
+Client ID: 0oab8eb55Kb9jdMIr5d6
+```
+
+**NOTE**: You can also use the Okta Admin Console to create your app. See [Create an Angular App](https://developer.okta.com/docs/guides/sign-into-spa/angular/create-okta-application/) for more information.
 
 #### Server Configuration
 
@@ -60,11 +70,11 @@ const oktaJwtVerifier = new OktaJwtVerifier({
 For the client, set the `issuer` and copy the `clientId` into `timeline-client/src/app/app.module.ts`.
 
 ```typescript
-OktaAuthModule.initAuth({
+const oktaConfig = {
   issuer: 'https://{yourOktaDomain}/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '{yourClientId}'
-})
+  clientId: '{clientId}',
+  redirectUri: window.location.origin + '/callback'
+}
 ```
 
 ## Links
@@ -72,7 +82,7 @@ OktaAuthModule.initAuth({
 This example uses the following open source libraries from Okta:
 
 * [Okta JWT Verifier](https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier#readme)
-* [Okta Angular SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#readme)
+* [Okta Angular SDK](https://github.com/okta/okta-angular)
 
 ## Help
 

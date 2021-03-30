@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
-const bearerToken = require('express-bearer-token');
 const events = require('./events');
+const bearerToken = require('express-bearer-token');
 const oktaAuth = require('./auth');
 
 const connection = mysql.createConnection({

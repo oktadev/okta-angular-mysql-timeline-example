@@ -9,10 +9,10 @@
   "author": "Holger Schmitz",
   "license": "Apache 2.0",
   "dependencies": {
-    "@okta/jwt-verifier": "1.0.0",
+    "@okta/jwt-verifier": "2.1.0",
     "cors": "2.8.5",
     "express": "4.17.1",
     "express-bearer-token": "2.4.0",
-    "mysql": "2.17.1"
+    "mysql": "2.18.1"
   }
 }

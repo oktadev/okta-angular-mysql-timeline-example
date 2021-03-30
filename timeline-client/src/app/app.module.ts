@@ -12,7 +12,13 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HomeComponent } from './home/home.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
-import { OktaAuthModule } from '@okta/okta-angular';
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+
+const oktaConfig = {
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
+  clientId: '{yourClientId}',
+  redirectUri: window.location.origin + '/callback'
+}
 
 @NgModule({
   declarations: [
@@ -30,13 +36,9 @@ import { OktaAuthModule } from '@okta/okta-angular';
     BsDatepickerModule.forRoot(),
     NgxTimelineModule,
     ModalModule.forRoot(),
-    OktaAuthModule.initAuth({
-      issuer: 'https://{yourOktaDomain}/oauth2/default',
-      redirectUri: 'http://localhost:4200/implicit/callback',
-      clientId: '{yourClientId}'
-    })
+    OktaAuthModule
   ],
-  providers: [],
+  providers: [{ provide: OKTA_CONFIG, useValue: oktaConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
